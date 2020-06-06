@@ -3,54 +3,45 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_name|string|null: false, unique: true|
+|name|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 
 ### Association
 - has_many :messages
-- has_many :logins
-- has_many :groups, through groups_users
+- has_many :groups, through: :groups_users
+- has_many :groups_users
 
 
 ## messagesテーブル
 |  column | type | options |
 | --- | --- | --- |
-|  group_id | integer | null: false, foreign_key: true |
-|  user_id | integer | null: false, foreign_key: true |
-|  body | text | null: false |
+|  group| references | null: false, foreign_key: true |
+|  user| references | null: false, foreign_key: true |
+|  body | text |  |
 |  image | string |  |
 
 ### Association
-- belongs_to :users
-- belongs_to :groups
+- belongs_to :user
+- belongs_to :group
 
 ## groupsテーブル
 |  column | type | options |
 | :--- | :--- | --- |
-|  group_name | string | null: false |
+|  name | string | null: false |
 
 ### Association
-- has_many :users, through groups_users
+- has_many :users, through: :groups_users
+- has_many :groups_users
+- has_many :messages
 
 
-## loginsテーブル
-|  column | type | options |
-| :--- | :--- | --- |
-|  login_datetime | datetime | null: false |
-|  logout_datetime | datetime | null: false |
-|  user_id | integer | null: false, foreign_key: true |
-
-### Association
-- belongs_to :users
 
 
 ## groups_usersテーブル
 |  column | type | options |
 | :--- | :--- | --- |
-|  group_id | integer | null: false, foreign_key: true |
-|  user_id | integer | null: false, foreign_key: true |
-|  join_datetime | datetime | null: false |
-|  exit_datetime | datetime | null: false |
+|  group | references | null: false, foreign_key: true |
+|  user | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :group
