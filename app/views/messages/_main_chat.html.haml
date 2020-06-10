@@ -1,0 +1,42 @@
+.Chat-main
+  .Chat-main__header
+    .Chat-main__header__group
+      .Chat-main__header__group__name
+        test
+      .Chat-main__header__group__member-list
+        Member:masa
+    .Chat-main__header__edit-btn
+      = link_to "#", class: "Chat-main__header__edit-btn__detail" do
+        Edit
+
+  .Chat-main__message
+    .Chat-main__message__box
+      .Chat-main__message__box__info
+        .Chat-main__message__box__info__user-name
+          masa
+        .Chat-main__message__box__info__date
+          2020/06/09(Tues)12:00
+      .Chat-main__message__box__content
+        おはよう！
+    .Chat-main__message__box
+      .Chat-main__message__box__info
+        .Chat-main__message__box__info__user-name
+          masa
+        .Chat-main__message__box__info__date
+          2020/06/09(Tues)22:00
+      .Chat-main__message__box__content
+        おやすみ
+
+  .Chat-main__footer
+    = form_with url:root_path , method: :post, class: "Chat-main__footer__form", local: true do |f|
+      .Chat-main__footer__form__contents
+        = f.text_field :text, placeholder:"type a message", class:"Chat-main__footer__form__contents__text"
+        = f.label :image, class: "Chat-main__footer__form__contents__label" do
+          = f.file_field :image, class: "Chat-main__footer__form__contents__file"
+          = icon('far', 'image', class: 'Chat-main__footer__form__contents__image')
+      = f.submit "Send", class:"Chat-main__footer__form__send-btn"
+        
+      
+      
+
+
