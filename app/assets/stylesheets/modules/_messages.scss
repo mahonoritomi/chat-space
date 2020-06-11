@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper{
+  display: flex;
+}
+
+.Side-bar {
+  @mixin h-w-bgcolor($height, $width,$bgcolor) {
+    height: $height;
+    width: $width;
+    background-color: $bgcolor;
+  }
+  @mixin font-setting ($fSize, $color){
+    font-size: $fSize;
+    color: $color;
+  }
+
+  @include h-w-bgcolor(100vh, 300px, #253141);
+  
+  &__user-name {
+    @include h-w-bgcolor(100px, 300px, #253141);
+    display: flex;
+    align-items: center;
+  
+    &__top-items{
+      @include h-w-bgcolor(20px, 260px, #253141);
+      margin: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      &__name {
+        @include font-setting(16px,#ffffff);
+      }
+      &__icons {
+        width: 60px;
+        display: flex;
+        justify-content: flex-end;
+        &__icon {
+          text-decoration: none;
+          &__edit {
+            color: #ffffff;
+            margin-right: 5px;
+          }
+          &__setting {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+  
+  &__group-list {
+    @include h-w-bgcolor(calc(100vh - 100px), 300px, #2f3e51);
+    &__group {
+      color: #ffffff;
+      padding: 20px 20px 40px 20px;
+    
+      &__name {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+    
+      &__message {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+.Chat-main {
+  @mixin h-w-bgcolor($height, $width,$bgcolor) {
+    height: $height;
+    width: $width;
+    background-color: $bgcolor;
+  }
+  @mixin font-setting ($fSize, $color){
+    font-size: $fSize;
+    color: $color;
+  }
+
+  @include h-w-bgcolor(100vh, calc(100vw - 300px), #ffffff);
+
+  &__header {
+    @include h-w-bgcolor(100px, calc(100vw - 300px), #ffffff);
+    display: flex;
+    justify-content: space-between;
+    &__group {
+      padding: 35px 0 0 40px;
+      &__name {
+        @include font-setting(20px,#333333);
+        margin-bottom: 15px;
+      }
+      &__member-list {
+        @include font-setting(12px,#999999);
+      }
+    }
+    &__edit-btn {
+      @include h-w-bgcolor(40px, 72px, #ffffff);
+      padding: 0 20px;
+      font-size: 16px;
+      margin: 28px 40px 32px 0;
+      border: 1px solid #38aef0;
+      display: flex;
+      align-items: center;
+      &__detail {
+        text-decoration: none;
+        color: #38aef0;
+      }
+    }
+  }
+
+  &__message {
+    @include h-w-bgcolor(calc(100vh - 100px - 90px), calc(100vw - 300px), #fafafa);
+    padding: 35px 0 0 40px;
+    &__box {
+      &__info {
+        display: flex;
+        &__user-name {
+          @include font-setting(16px,#333333);
+          font-weight: bold;
+          margin-bottom: 12px;
+        }
+        &__date {
+          @include font-setting(12px,#999999);
+          padding-left: 10px;
+        }
+      }
+      &__content {
+        @include font-setting(14px,#434A54);
+        margin-bottom: 46px;
+      }
+    }
+  }
+
+  &__footer {
+    @include h-w-bgcolor(90px, calc(100vw - 300px), #d2d2d2);
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    &__form {
+      @include h-w-bgcolor(50px, calc(100vw - 300px - 40px), #d2d2d2);
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      
+      &__contents{
+        background-color: #ffffff;
+        width: 100%;
+        display: flex;
+        position: relative;
+        border: none;
+        &__text {
+          padding-left:10px ;
+          border: none;
+          width: 100%;
+        }
+        &__file {
+          display: none;
+        }
+        &__image {
+          height: 50px;
+          font-size: 25px;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        } 
+      }
+      &__send-btn {
+        @include font-setting(16px,#ffffff);
+        padding: 0 30px;
+        background-color: #38aef0;
+        margin-left: 15px;
+        border: none;
+      }
+    }
+  }
+}
