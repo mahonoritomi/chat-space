@@ -53,12 +53,15 @@
   &__group-list {
     @include h-w-bgcolor(calc(100vh - 100px), 300px, #2f3e51);
     &__group {
+      display: block;
       color: #ffffff;
       padding: 20px 20px 40px 20px;
-    
+      text-decoration: none;
+
       &__name {
         font-size: 15px;
         margin-bottom: 5px;
+        
       }
     
       &__message {
