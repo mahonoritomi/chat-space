@@ -116,6 +116,7 @@
   &__message {
     @include h-w-bgcolor(calc(100vh - 100px - 90px), calc(100vw - 300px), #fafafa);
     padding: 35px 0 0 40px;
+    overflow: scroll;
     &__box {
       &__info {
         display: flex;
